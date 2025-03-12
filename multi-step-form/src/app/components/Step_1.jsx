@@ -1,12 +1,11 @@
-import Image from "next/image";
-import { Input_1 } from "./Input_1";
+import { Text_input } from "./Text_input";
 
-export const Step_1 = () => {
+export const Step_1 = ({ handleSubmit, stepCount, handleInput }) => {
   return (
-    <div className="mt-6">
-      <Input_1 bold_word={"First name"} word={"Your first name"} />
-      <Input_1 bold_word={"Last name"} word={"Your last name"} />
-      <Input_1 bold_word={"Username"} word={"Your username"} />
-    </div>
+    <form className="flex flex-col justify-between" onSubmit={handleSubmit}>
+      <Text_input bold_word={"First name"} word={"Your first name"} />
+      <Text_input bold_word={"Last name"} word={"Your last name"} />
+      <Text_input bold_word={"Username"} word={"Your username"} />
+    </form>
   );
 };

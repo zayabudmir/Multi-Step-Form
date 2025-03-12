@@ -1,55 +1,30 @@
-// import Image from "next/image";
-// import { FaChevronLeft } from "react-icons/fa";
-// import { MdOutlineChevronRight } from "react-icons/md";
+import { FaChevronLeft } from "react-icons/fa";
+import { MdOutlineChevronRight } from "react-icons/md";
 
-// // 1111111111111111111111
-// // export const Footer = ({ text }) => {
-// //   return (
-// //     <div className="flex w-[416px] h-[44px] px-[10px] py-3 justify-center items-center rounded-[6px] bg-[#121316]">
-// //       <p className="text-[rgb(255,255,255)] text-4 font-medium flex items-center">
-// //         Continue 1/3
-// //         <span>
-// //           <MdOutlineChevronRight />
-// //         </span>
-// //       </p>
-// //     </div>
-// //   );
-// // };
+export const Footer = ({ stepCount, handleNext, handlePrevious }) => {
+  return (
+    <div className="w-full flex items-center gap-2">
+      {stepCount > 1 && (
+        <button
+          className="flex items-center justify-center border h-[44px] w-32 border-[#CBD5E1] px-[10px] py-[12]  gap-1 text-[#202124] text-4 font-medium rounded-[8px] cursor-pointer active:bg-gray-200"
+          onClick={handlePrevious}
+        >
+          <FaChevronLeft size={15} /> Back
+        </button>
+      )}
 
-// // 222222222222222222222222222
-// // export const Footer = ({}) => {
-// //   return (
-// //     <div className="w-full flex items-center gap-2">
-// //       <button className="flex items-center w-[104px] h-[44px] px-[10px] py-[12] justify-center gap-1 text-[#202124] text-4 font-medium border rounded-[8px]">
-// //         <FaChevronLeft /> <p>Back</p>
-// //       </button>
-// //       <button className="flex w-[280px] h-[44px] bg-[#121316] rounded-[6px] px-[10px] py-[12px] justify-center items-center gap-1 cursor-pointer active:bg-gray-700">
-// //         <p className="text-[rgb(255,255,255)] text-4 font-medium flex items-center">
-// //           Continue 2/3
-// //           <span>
-// //             <MdOutlineChevronRight />
-// //           </span>
-// //         </p>
-// //       </button>
-// //     </div>
-// //   );
-// // };
-
-// // 33333333333333333333333333
-// // export const Footer = ({}) => {
-// //   return (
-// //     <div className="w-full flex items-center gap-2">
-// //       <button className="flex items-center w-[104px] h-[44px] px-[10px] py-[12] justify-center gap-1 text-[#202124] text-4 font-medium border rounded-[8px]">
-// //         <FaChevronLeft /> <p>Back</p>
-// //       </button>
-// //       <button className="flex w-[280px] h-[44px] bg-[#121316] rounded-[6px] px-[10px] py-[12px] justify-center items-center gap-1 cursor-pointer active:bg-gray-700">
-// //         <p className="text-[rgb(255,255,255)] text-4 font-medium flex items-center">
-// //           Continue 3/3
-// //           <span>
-// //             <MdOutlineChevronRight />
-// //           </span>
-// //         </p>
-// //       </button>
-// //     </div>
-// //   );
-// // };
+      <button
+        className="flex w-full h-[44px] bg-[#121316] rounded-[6px] px-3 py-2.5 justify-center items-center gap-1 cursor-pointer active:bg-gray-700"
+        type="submit"
+        onClick={handleNext}
+      >
+        <p className="text-[rgb(255,255,255)] text-4 font-medium flex items-center">
+          Continue {stepCount}/3
+          <span>
+            <MdOutlineChevronRight size={24} />
+          </span>
+        </p>
+      </button>
+    </div>
+  );
+};

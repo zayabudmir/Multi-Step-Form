@@ -1,7 +1,4 @@
-import Image from "next/image";
-import { FaRegImage } from "react-icons/fa";
-
-export const Input = ({ id, className }) => {
+export const Img_input = ({ id, className }) => {
   return (
     <input
       id={id}

@@ -1,6 +1,4 @@
-import Image from "next/image";
-
-export const Input_1 = ({ bold_word, word }) => {
+export const Text_input = ({ bold_word, word }) => {
   return (
     <div className="text-[#334155] text-[14px] font-semibold mt-3">
       <p>

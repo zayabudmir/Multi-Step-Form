@@ -1,6 +1,4 @@
-import Image from "next/image";
-
-export const Header_2 = () => {
+export const End = () => {
   return (
     <div>
       <img className="w-[60px] h-[60px]" src="/logo.png"></img>

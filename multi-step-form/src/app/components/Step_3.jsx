@@ -1,10 +1,9 @@
-import Image from "next/image";
 import { FaRegImage } from "react-icons/fa";
-import { Input } from "./Input";
+import { Img_input } from "./Img_input";
 
-export const Step_3 = () => {
+export const Step_3 = ({ handleSubmit }) => {
   return (
-    <div className="mt-6">
+    <form className="mt-6" onSubmit={handleSubmit}>
       <div className="text-[#334155] text-[14px] font-semibold mt-3">
         <p>
           Date of birth
@@ -21,7 +20,7 @@ export const Step_3 = () => {
           <span className="text-[#E14942] text-[14px] font-semibold"> *</span>
         </p>
         <div className="relative size-fit bg-[#F4F4F4] flex flex-col items-center mt-3 justify-center rounded-[6px]">
-          <Input className="opacity-0" id="img" />
+          <Img_input className="opacity-0" id="img" />
           <div className="absolute">
             <div className="flex flex-col items-center justify-center">
               <FaRegImage />
@@ -30,6 +29,7 @@ export const Step_3 = () => {
           </div>
         </div>
       </div>
-    </div>
+      <div></div>
+    </form>
   );
 };
