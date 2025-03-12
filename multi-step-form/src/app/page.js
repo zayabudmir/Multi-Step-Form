@@ -19,22 +19,25 @@ export default function Home() {
   const CurrentStep = [Step_1, Step_2, Step_3, End][stepCount];
   return (
     <div className="bg-[#F4F4F4] w-screen h-screen flex justify-center items-center">
-      <div className="w-[480px] h-[655px] p-8 bg-[#FFF] flex flex-col justify-between rounded-[8px] items-start">
-        <div>
+      <div className="w-[480px] h-auto p-8 bg-[#FFF] flex flex-col justify-between rounded-2xl items-start">
+        <div className="flex flex-col h-full">
           {stepCount != 3 && <Header />}
-
           <CurrentStep
             handleSubmit={handleNextStep}
             stepCount={stepCount + 1}
             handlePrevious={handlePrevious}
           />
         </div>
-        <Footer
-          handleNext={handleNextStep}
-          handlePrevious={handlePrevious}
-          stepCount={stepCount + 1}
-        />
+        {stepCount < 3 && (
+          <Footer
+            handleNext={handleNextStep}
+            handlePrevious={handlePrevious}
+            stepCount={stepCount + 1}
+          />
+        )}
       </div>
     </div>
   );
 }
+
+//

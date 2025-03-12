@@ -3,14 +3,14 @@ import { Img_input } from "./Img_input";
 
 export const Step_3 = ({ handleSubmit }) => {
   return (
-    <form className="mt-6" onSubmit={handleSubmit}>
-      <div className="text-[#334155] text-[14px] font-semibold mt-3">
+    <form className="mt-3" onSubmit={handleSubmit}>
+      <div className="text-[#334155] text-[14px] font-semibold">
         <p>
           Date of birth
           <span className="text-[#E14942] text-[14px] font-semibold"> *</span>
         </p>
         <input
-          className=" w-full h-[44px] p-[12px] border rounded-[8px] border-[#CBD5] mt-2"
+          className=" w-full h-[44px] p-[12px] border rounded-[8px] border-[#CBD5]"
           type="date"
         />
       </div>

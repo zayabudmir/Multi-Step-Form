@@ -7,7 +7,6 @@ export const Img_input = ({ id, className }) => {
         className
       }
       type="file"
-      placeholder=""
     />
   );
 };
