@@ -1,20 +1,42 @@
 "use client";
 import { Header } from "./components/Header";
-import { Step_1 } from "./components/Step_1";
-import { Step_2 } from "./components/Step_2";
-import { Step_3 } from "./components/Step_3";
+import { Step_2 } from "./components/steps/Step_2";
+import { Step_3 } from "./components/steps/Step_3";
 import { useState } from "react";
 import { End } from "./components/End";
 import { Footer } from "./components/Footer";
+import { Step_1 } from "./components/steps/Step_1";
 
 export default function Home() {
   const [stepCount, setStepCount] = useState(0);
   const [error, setError] = useState(false);
+  const [data, setData] = useState();
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+
+    setData((previousValues) => ({
+      ...previousValues,
+      [name]: value,
+    }));
+  };
+
+  // const handleOnChangeInput = () => {
+  //   setData((previousValues) => ({
+  //     ...previousValues,
+  //     [name]: value,
+  //   }));
+  // };
 
   const handleNextStep = () => {
-    setError(true);
-    // setStepCount(stepCount + 1);
+    if (data.firstName.length < 8) {
+      setError(true);
+    } else {
+      setStepCount(stepCount + 1);
+      setError(false);
+    }
   };
+
   const handlePrevious = () => {
     setStepCount(stepCount - 1);
   };
@@ -28,7 +50,9 @@ export default function Home() {
             handleSubmit={handleNextStep}
             stepCount={stepCount + 1}
             handlePrevious={handlePrevious}
+            handleInputChange={handleInputChange}
             error={error}
+            data={data}
           />
         </div>
         {stepCount < 3 && (

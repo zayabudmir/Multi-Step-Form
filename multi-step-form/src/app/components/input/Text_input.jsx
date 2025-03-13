@@ -1,4 +1,11 @@
-export const Text_input = ({ bold_word, word, error, errorText }) => {
+export const Text_input = ({
+  bold_word,
+  word,
+  error,
+  errorText,
+  name,
+  onChange,
+}) => {
   return (
     <div className="text-[#334155] text-[14px] font-semibold mt-3">
       <p>
@@ -6,7 +13,12 @@ export const Text_input = ({ bold_word, word, error, errorText }) => {
         <span className="text-[#E14942] text-[14px] font-semibold"> *</span>
       </p>
       <input
-        className="flex w-[412px] h-[40px] mt-2 p-3 items-center border rounded-2xl border-[#CBD5] text-[#8B8E95 text-[16px] font-normal"
+        name={name}
+        onChange={onChange}
+        className={`${
+          error && "border-red-400"
+        } flex w-[412px] h-[40px] mt-2 p-3 items-center border rounded-2xl border-[#CBD5] text-[#8B8E95 text-[16px] font-normal`}
+        // style={{ borderColor: error && "red" }}
         type="text"
         placeholder={word}
       />

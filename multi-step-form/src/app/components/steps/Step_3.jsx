@@ -1,5 +1,5 @@
 import { FaRegImage } from "react-icons/fa";
-import { Img_input } from "./Img_input";
+import { Img_input } from "../input/Img_input";
 
 export const Step_3 = ({ handleSubmit }) => {
   return (
