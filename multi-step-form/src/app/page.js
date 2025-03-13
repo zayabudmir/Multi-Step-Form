@@ -9,9 +9,11 @@ import { Footer } from "./components/Footer";
 
 export default function Home() {
   const [stepCount, setStepCount] = useState(0);
+  const [error, setError] = useState(false);
 
   const handleNextStep = () => {
-    setStepCount(stepCount + 1);
+    setError(true);
+    // setStepCount(stepCount + 1);
   };
   const handlePrevious = () => {
     setStepCount(stepCount - 1);
@@ -19,13 +21,14 @@ export default function Home() {
   const CurrentStep = [Step_1, Step_2, Step_3, End][stepCount];
   return (
     <div className="bg-[#F4F4F4] w-screen h-screen flex justify-center items-center">
-      <div className="w-[480px] h-auto p-8 bg-[#FFF] flex flex-col justify-between rounded-2xl items-start">
+      <div className="w-[480px] p-8 bg-[#FFF] flex flex-col justify-between rounded-2xl items-start">
         <div className="flex flex-col h-full">
           {stepCount != 3 && <Header />}
           <CurrentStep
             handleSubmit={handleNextStep}
             stepCount={stepCount + 1}
             handlePrevious={handlePrevious}
+            error={error}
           />
         </div>
         {stepCount < 3 && (
