@@ -1,13 +1,6 @@
 import { Text_input } from "../input/Text_input";
 
-export const Step_1 = ({
-  handleSubmit,
-  stepCount,
-  handleInput,
-  error,
-  data,
-  handleInputChange,
-}) => {
+export const Step_1 = ({ handleSubmit, error, handleInputChange }) => {
   return (
     <form className="flex flex-col justify-between" onSubmit={handleSubmit}>
       <Text_input
@@ -18,20 +11,27 @@ export const Step_1 = ({
         word={"Your first name"}
         error={error}
         errorText={"First name cannot contain special characters or numbers."}
+        type={"Text"}
       />
       <Text_input
+        onChange={handleInputChange}
         bold_word={"Last name"}
-        name="Last name"
+        name="lastName"
+        data="data"
         word={"Your last name"}
         error={error}
         errorText={"First name cannot contain special characters or numbers."}
+        type={"Text"}
       />
       <Text_input
+        onChange={handleInputChange}
         bold_word={"Username"}
-        name="Username"
+        name="userName"
+        data="data"
         word={"Your username"}
         error={error}
         errorText={"This username is already taken. Please choose another one."}
+        type={"Text"}
       />
     </form>
   );

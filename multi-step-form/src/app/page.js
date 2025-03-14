@@ -1,16 +1,19 @@
 "use client";
-import { Header } from "./components/Header";
-import { Step_2 } from "./components/steps/Step_2";
-import { Step_3 } from "./components/steps/Step_3";
+import { Header, Step_1, Step_2, Step_3, End, Footer } from "./components";
 import { useState } from "react";
-import { End } from "./components/End";
-import { Footer } from "./components/Footer";
-import { Step_1 } from "./components/steps/Step_1";
 
 export default function Home() {
   const [stepCount, setStepCount] = useState(0);
   const [error, setError] = useState(false);
-  const [data, setData] = useState();
+  const [data, setData] = useState({
+    firstName: " ",
+    lastName: " ",
+    userName: " ",
+    email: " ",
+    password: "",
+    confirmPassword: "",
+    birthday: "",
+  });
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -20,22 +23,60 @@ export default function Home() {
       [name]: value,
     }));
   };
-
-  // const handleOnChangeInput = () => {
-  //   setData((previousValues) => ({
-  //     ...previousValues,
-  //     [name]: value,
-  //   }));
-  // };
-
   const handleNextStep = () => {
-    if (data.firstName.length < 8) {
-      setError(true);
-    } else {
+    if (stepCount === 0) {
+      if (data.firstName.length < 4) {
+        setError(true);
+        return;
+      }
+      if (data.lastName.length < 4) {
+        setError(true);
+        return;
+      }
+      if (data.userName.length < 4) {
+        setError(true);
+        return;
+      }
       setStepCount(stepCount + 1);
-      setError(false);
+    } else if (stepCount === 1) {
+      const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (!regex.test(data.email)) {
+        setError(true);
+        console.log("this is working1");
+
+        return;
+      }
+      if (data.phoneNumber.length < 8) {
+        setError(true);
+        console.log("this is working2");
+
+        return;
+      }
+      if (data.password !== data.confirmPassword) {
+        setError(true);
+
+        console.log(data.password == data.confirmPassword);
+
+        return;
+      }
+      if (data.confirmPassword !== data.password) {
+        setError(true);
+        console.log("this is working4");
+
+        return;
+      }
+      console.log("this is working");
+
+      setStepCount(stepCount + 1);
     }
+    // } else if (stepCount === 2) {
+    //   if (data.age) {
+    //     setError(true);
+    //   }
+    //   setStepCount(stepCount + 1);
+    // }
   };
+  console.log(data.birthday);
 
   const handlePrevious = () => {
     setStepCount(stepCount - 1);

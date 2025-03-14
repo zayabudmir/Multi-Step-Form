@@ -5,6 +5,7 @@ export const Text_input = ({
   errorText,
   name,
   onChange,
+  type,
 }) => {
   return (
     <div className="text-[#334155] text-[14px] font-semibold mt-3">
@@ -18,8 +19,7 @@ export const Text_input = ({
         className={`${
           error && "border-red-400"
         } flex w-[412px] h-[40px] mt-2 p-3 items-center border rounded-2xl border-[#CBD5] text-[#8B8E95 text-[16px] font-normal`}
-        // style={{ borderColor: error && "red" }}
-        type="text"
+        type={type}
         placeholder={word}
       />
       {error && (

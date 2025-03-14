@@ -12,6 +12,7 @@ export const Step_3 = ({ handleSubmit }) => {
         <input
           className=" w-full h-[44px] p-[12px] border rounded-[8px] border-[#CBD5]"
           type="date"
+          name="birthday"
         />
       </div>
       <div className="text-[#334155] text-[14px] font-semibold mt-3">
